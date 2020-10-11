@@ -26,7 +26,6 @@
             min-height: 100vh;
             background: url(img/universe7.gif);
             background-size: cover;
-            background-position: right;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -195,7 +194,7 @@
         }
         .techstack .content{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-wrap: wrap;
             align-self: center;
 
@@ -262,7 +261,8 @@
             min-width: 40%;
             margin-left: 100px;
         }
-        .contactImg{
+        .contactImg img{
+            min-width: 150px;
             margin-right: 250px;
             margin-top: 50px;
         }
@@ -312,6 +312,7 @@
                 width: 100%;
                 height: 100vh;
                 background: #fff;
+                opacity: 0.8;
                 transition: 0.5s;
                 z-index: 999;
                 border-top: 1px solid rgba(red, green, blue, 0.2);
@@ -390,6 +391,9 @@
             .contactInfo{
                 min-width: 40%;
                 margin: 20px 0;
+            }
+            .contactImg{
+                min-width: 50%;
             }
         }
 
@@ -599,7 +603,7 @@
             </div>
             <div id="SubmitAlbum-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="SubmitAlbum-heading-three">
                 <div class="panel-body">
-                    Personal Tech Blog | Record of all added knowledge | over 140 blogs
+                    Personal Tech Blog | Record of all added knowledge | over <span class="badge badge-pill badge-info">140</span> blogs
                     <ul>
                         <li><a class="nav-link" href="https://github.com/puddlejumper26/blogs#puddlejumper26s-blog-" target="blank">To Github Repository <span class="badge badge-success">click!</span></a></li>
                     </ul>
