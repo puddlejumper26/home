@@ -1,0 +1,740 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Xiang's Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+    /* Hide the scroll bar on the right side */
+        body::-webkit-scrollbar {display: none}
+        section{
+            padding: 100px;
+        }
+        .banner{
+            position: relative;
+            min-height: 100vh;
+            background: url(img/universe7.gif);
+            background-size: cover;
+            background-position: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner h2{
+            font-size: 3em;
+            color: azure;
+            font-weight: 500;
+            line-height: 1.5em;
+        }
+        .banner h2 span{
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        .banner h3{
+            font-size: 1.5em;
+            color: azure;
+            font-weight: 500;
+            margin: 10px;
+        }
+        .btn{
+            position: relative;
+            background:#2196f3;
+            display: inline-block;
+            color: azure;
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.5s;
+        }
+        header.sticky{
+            background: #fff;
+            padding: 20px 100px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        header .logo{
+            color: azure;
+            font-size: 24px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        header.sticky .logo{
+            color:black;
+        }
+        header ul{
+            position: relative;
+            display: flex;
+            font-size: 15px;
+        }
+        header ul li{
+            position: relative;
+            list-style: none;
+        }
+        header ul li a{
+            position: relative;
+            display: inline-block;
+            margin: 0 15px;
+            color: azure;
+            text-decoration: none;
+        }
+        header.sticky ul li a{
+            color: #222;
+        }
+        .heading{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #111;
+        }
+        .heading h2{
+            font-weight: 1200;
+            font-size: 45px;
+        }
+        .content{
+            display: flex;
+            justify-content: space-between;
+        }
+        .contentBx{
+            padding-right: 30px;
+            min-width: 60%;
+        }
+        .contentBx h3{
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .contentBx p{
+            text-align: justify;
+            margin: 5px 10px 20px 0;
+        }
+        .w30{
+            max-width: 20%;
+        }
+        img{
+            max-width: 100%;
+        }
+        .certificate{
+            background: #222;
+            z-index: -1;
+        }
+        .heading .white{
+            color: white;
+        }
+        .certificate .content{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        .certificate .content .certificateBx{
+            padding: 40px 20px;
+            background: #333;
+            color: #fff;
+            max-width: 340px;
+            margin: 20px;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .certificate .content .certificateBx:hover{
+            background: #555;
+            filter: invert(2);
+        }
+        .certificate .content .certificateBx img{
+            max-width: 280px;
+        }
+        .certificate .content .certificateBx h3{
+            margin-top: 30px;
+        }
+        .certificate .content .certificateBx h3 a{
+            text-decoration: none;
+            color: #999;
+        }
+        .work{
+            background:rgb(85, 121, 100)
+        }
+        .work .content{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .work .content .workBx{
+            width: 50%;
+            padding: 20px;
+        }
+        .work .content .workBx .img{
+            max-width: 100%;
+        }
+        .techstack{
+            background: white;
+        }
+        .techstack .content{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-self: center;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        .techstack .content .techstackBx img{
+            align-self: center;
+            width: 200px;
+            height: 200px;
+            /* padding: 60px 40px; */
+            /* margin: 20px; */
+            /* background: #2196f3; */
+        }
+
+        .techstack .content .techstackBx{
+            padding: 40px 20px;
+            max-width: 340px;
+            margin: 20px;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .certificate .content .certificateBx img{
+            max-width: 280px;
+        }
+        .contact{
+            background: #111;
+        }
+        .formBx{
+            min-width: 60%;
+        }
+        .formBx form{
+            display: flex;
+            flex-direction: column;
+        }
+        .formBx form h3, .contactInfo h3{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .formBx form input,
+        .formBx form textarea{
+            margin-bottom: 20px;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            background: #333;
+            color: #fff;
+            resize: none;
+        }
+        .formBx form textarea{
+            min-height: 200px;
+        }
+        .formBx form button{
+            max-width: 100px;
+            background: #2196f3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .contactInfo{
+            min-width: 40%;
+            margin-left: 100px;
+        }
+        .contactImg{
+            margin-right: 250px;
+            margin-top: 50px;
+        }
+        .contactInfoBx{
+            position: relative;
+            left: 100px;
+        }
+        .contactInfoBx .box{
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+        }
+        .contactInfoBx .box .text{
+            display: flex;
+            margin-left: 20px;
+            font-size: 16px;
+            color: #fff;
+            flex-direction: column;
+            font-weight: 300;
+        }
+        .contactInfoBx .box .text h3{
+            font-weight: 500;
+            color:#2196f3;
+            margin-bottom: 0;
+        }
+        .copyright{
+            background: #111;
+            color: #999;
+            text-align: center;
+            padding: 10px;
+        }
+
+    /*Reponsive*/
+        @media (max-width: 990px){
+            header,
+            header.sticky{
+                padding: 20px 50px;
+                z-index: 1000;
+            }
+            .menu{
+                position: fixed;
+                top: 75px;
+                left: -100%;
+                display: block;
+                padding: 100px 50px;
+                text-align: center;
+                width: 100%;
+                height: 100vh;
+                background: #fff;
+                transition: 0.5s;
+                z-index: 999;
+                border-top: 1px solid rgba(red, green, blue, 0.2);
+            }
+            .menu.active{
+                left: 0;
+            }
+            header ul li a{
+                color: #111;
+                font-size: 24px;
+                margin: 10px;
+            }
+            .toggle{
+                width: 40px;
+                height: 40px;
+                background: url(img/menu.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 30px;
+                cursor: pointer;
+            }
+            .toggle.active{
+                background: url(img/close.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 25px;
+                cursor: pointer;
+            }
+            header.sticky .toggle{
+                filter: invert(1);
+            }
+            section{
+                padding: 100px 50px;
+            }
+            .banner{
+                padding: 150px 50px 100px;
+            }
+            .banner h2{
+                font-size: 1.5em;
+            }
+            .banner h3{
+                font-size: 1em;
+            }
+            .btn{
+                margin-top: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            .heading h2{
+                font-size: 35px;
+            }
+            .heading h3{
+                font-size: 20px;
+            }
+            .content{
+                flex-direction: column;
+            }
+            .w30{
+                align-self: center;
+                max-width: 50%;;
+            }
+            .certificate .content .certificateBx{
+                margin: 10px;
+            }
+            .work .content .workBx{
+                width: 100%;
+                padding: 10px;
+            }
+            .techstack .content .techstackBx img{
+                width: 100px;
+                height: 100px;
+            /* padding: 60px 40px; */
+            /* margin: 20px; */
+            /* background: #2196f3; */
+            }
+            .contactInfo{
+                min-width: 40%;
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 600px){
+            header,
+            header.sticky{
+                padding: 20px 20px;
+            }
+            .banner{
+                padding: 150px 20px 100px;
+            }
+            section{
+                padding: 100px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">羊羽</a>
+        <div class="toggle" onclick="toggleMenu()"></div>
+        <ul class="menu">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#certificate" onclick="toggleMenu()">Certificates</a></li>
+            <li><a href="#work" onclick="toggleMenu()">Work</a></li>
+            <li><a href="#techstack" onclick="toggleMenu()">Tech-Stack</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </header>
+<!-- Banner -->
+    <section class="banner" id="home">
+        <div class="textBx">
+            <h2>Hello, I'm <br><span>Puddlejumper26</span></h2>
+            <h3>I am a Frontend Developer</h3>
+            <a href="#about" class="btn">About me</a>
+        </div>
+    </section>
+<!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <h2>About Me</h2>
+        </div>
+        <div class="content">
+            <div class="contentBx">
+                <h3>I am a passionate front end developer.</h3>
+                <p>
+
+                    My name is Xiang WU (Puddlejumper26). I graduated from TU Munich(Technische Universität München) in 2013 with a Master degree.
+                    My master thesis was focusing on the professional industrial software comparisons.
+
+                    <br><br>
+
+                    I started to work in Wagawin GmbH from 09/2019 as a junior Frontend Developer.
+                    Tech stack is Angular, Angular Material, TypeScript, HTML, CSS, Jira, Jenkins, etc.
+
+                    <br><br>
+
+                    Before this, I had around one year coding experience in Frontend,
+                    with JavaScript, Bootstrap, HTML, CSS, etc.
+                    I also had several months coding experiences in the field of machine learning with Python
+                    and also around 10 months experiences in Forex Coding with Meta Trader 4 (MQL4)
+
+                    <br><br>
+
+                    Between 11/2018-04/2019 I was enrolled in the <a href="https://www.edukatico.org/en/online-course/microsoft-professional-program-front-end-web-development-orientation" target="_blank">Microsoft Professional Program</a> for Front-End Web Development.
+                    And obtained several verified certificates,
+                    which could be found under <a href="#certificate">CERTIFICATES</a> page.
+
+                    <br><br>
+
+                    I love coding. Especially the moment when the final work could run smoothly.
+
+                    <br><br>
+
+                    My personal goal is to become a professional in Full Stack mainly with focus on Front End in the next few years.
+
+                    <br><br>
+
+                    Technique is and will be my lifelong pursuit goal.
+
+                    <br><br>
+
+                    I am a Sci-Fi fan since 6 years old. : )
+                </p>
+
+            </div>
+            <div class="w30">
+                <img src="img/photo.jpg" alt="img">
+            </div>
+        </div>
+    </section>
+<!-- certificate -->
+    <section class="certificate" id="certificate">
+        <div class="heading">
+            <h2 class="white">Certificates</h2>
+        </div>
+        <div class="content">
+            <div class="certificateBx">
+                <img src="img/cer1.png">
+                <h3><a href="https://courses.edx.org/certificates/47cd8785c5b942408d1ef3978aafe3c1" target="_blank">Advanced Angular</a></h3>
+            </div>
+            <div class="certificateBx">
+                <img src="img/cer2.png">
+                <h3><a href="https://courses.edx.org/certificates/42ccb23e11864ef4abffa34354c6e926" target="_blank">Angular Fundamentals</a></h3>
+            </div>
+            <div class="certificateBx">
+                <img src="img/cer3.png">
+                <h3><a href="https://courses.edx.org/certificates/4c67f74df3a44eada5a1293e5ef581d4" target="_blank">Frontend Development</a></h3>
+            </div>
+            <div class="certificateBx">
+                <img src="img/cer4.png">
+                <h3><a href="https://courses.edx.org/certificates/7e85501625914c6bbc8d719a0a631e5d" target="_blank">Advanced CSS Concepts</a></h3>
+            </div>
+            <div class="certificateBx">
+                <img src="img/cer5.png">
+                <h3><a href="https://courses.edx.org/certificates/c51bc2253ebf4a5cb42746bc7a6e9d37" target="_blank">TypeScript</a></h3>
+            </div>
+            <div class="certificateBx">
+                <img src="img/cer6.png">
+                <h3><a href="https://courses.edx.org/certificates/64221ebe413642149443af36dcc80b79" target="_blank">JavaScript</a></h3>
+            </div>
+        </div>
+    </section>
+
+<!-- Work -->
+    <section class="work" id="work">
+        <div class="heading">
+            <h2>My Work</h2>
+        </div>
+        <!-- <div class="content">
+            <h2>Tech Blog</h2>
+            <ul>
+                <li><a href="https://github.com/puddlejumper26/blogs/blob/master/README.md#puddlejumper26s-blog-" target="_blank">Click</a></li>
+                <li>Description</li>
+                <p>This blog is to take record of the new knowledge</p>
+            </ul>
+        </div> -->
+        <div class="panel-group" id="SubmitAlbum" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="SubmitAlbum-heading-one">
+                    <h3 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#SubmitAlbum" href="#SubmitAlbum-one"
+                            aria-expanded="true" aria-controls="SubmitAlbum-one">
+                            Project 1: Simulations of Online-Shopping Website Front-End (JS)
+                        </a>
+                    </h3>
+                </div>
+                <div id="SubmitAlbum-one" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SubmitAlbum-heading-one">
+                    <div class="panel-body">
+                        This project contains the whole pacakge of the front end. It was built with HTML,CSS,Javascript,jQuery and Bootstrap, not suitable for mobile devices |
+                        Please use chrome for the best quality. | Inside Each Page Please click the <span style="background-color:red;color:white;padding:2px;border-radius:5px;">Valid</span> for the valid links due to language.
+                        <ul>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/homepage.html" target="_blank">Home Page <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/category.html" target="_blank">Category <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projectstmall_website/front_end/09-final-merge/product.html" target="_blank">Product <span class="badge badge-success">click!</span></a> </li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/login.html" target="_blank">Login <span class="badge badge-success">click!</span></a> </li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/shoppingcart.html" target="_blank">Shopping Cart <span class="badge badge-success">click!</span></a>  - Most complicated with JS, selections,amounts,numbers,quantities changing with each other</li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/myorder.html" target="_blank">My Order <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/orderconfirmation.html" target="_blank">Order Confirmation <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/confirmreceive.html" target="_blank">Confirmation Receive <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/payment.html" target="_blank">Payment <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/paysuccess.html" target="_blank">Pay Success <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/receivedsuccess.html" target="_blank">Receive Success <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/evaluation.html" target="_blank">Evaluation <span class="badge badge-success">click!</span></a></li>
+                            <li><a href="https://puddlejumper26.github.io/js-showcases/projects/tmall_website/front_end/09-final-merge/register.html" target="_blank">Register <span class="badge badge-success">click!</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- Project 2 -->
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="SubmitAlbum-heading-two">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#SubmitAlbum" href="#SubmitAlbum-two"
+                            aria-expanded="false" aria-controls="SubmitAlbum-two">
+                            Project 2: Online Store Simulation (Angular 9.0)
+                        </a>
+                    </h3>
+                </div>
+                <div id="SubmitAlbum-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="SubmitAlbum-heading-two">
+                    <div class="panel-body">
+                        Built with TypeScript, Angular 9.0, Bootstrap, etc. | With Services, Forms, Validations, Route etc. | With Jason Server could only run locally | Please check the <span style="font-weight: 900;">Github Repository</span> for details.
+                        <ul>
+                            <li><a class="nav-link" href="https://puddlejumper26.github.io/SportStore/" target="blank">Demo <span class="badge badge-success">click!</span></a></li>
+                        </ul>
+                        Webpage Showcases
+                        <ul>
+                            <li><a class="nav-link" href="https://github.com/puddlejumper26/sportstore#sport-store-project" target="blank">Github Repository<span class="badge badge-success">click!</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="SubmitAlbum-heading-three">
+                <h3 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#SubmitAlbum" href="#SubmitAlbum-three"
+                        aria-expanded="false" aria-controls="SubmitAlbum-three">
+                        Personal Tech Blog
+                    </a>
+                </h3>
+            </div>
+            <div id="SubmitAlbum-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="SubmitAlbum-heading-three">
+                <div class="panel-body">
+                    Personal Tech Blog | Record of all added knowledge | over 140 blogs
+                    <ul>
+                        <li><a class="nav-link" href="https://github.com/puddlejumper26/blogs#puddlejumper26s-blog-" target="blank">To Github Repository <span class="badge badge-success">click!</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="SubmitAlbum-heading-four">
+                <h3 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#SubmitAlbum" href="#SubmitAlbum-four"
+                        aria-expanded="false" aria-controls="SubmitAlbum-four">
+                        Showcases
+                    </a>
+                </h3>
+            </div>
+            <div id="SubmitAlbum-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="SubmitAlbum-heading-four">
+                <div class="panel-body">
+                    Basic Showcases | Webpage Showcases | JS HTML CSS BOOTSTRAP JQUERY
+                    <ul>
+                        <li><a class="nav-link" href="https://github.com/puddlejumper26/showcases#-showcases-" target="blank">To Github Repository <span class="badge badge-success">click!</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- techstack -->
+    <section class="techstack" id="techstack">
+        <div class="heading">
+            <h2>Tech Stack</h2>
+        </div>
+        <div class="content">
+            <div class="techstackBx">
+                <img src="img/angular.png">
+            </div>
+            <div class="techstackBx">
+                <img src="img/html.png">
+            </div>
+            <div class="techstackBx">
+                <img src="img/css.png">
+            </div>
+            <div class="techstackBx">
+                <img src="img/js.png">
+            </div>
+            <div class="techstackBx">
+                <img src="img/ts.png">
+            </div>
+        </div>
+    </section>
+
+
+<!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="heading">
+            <h2 class="white">Contact Me</h2>
+        </div>
+        <div class="content">
+            <div class="contactInfo">
+                <h3>Contact Info</h3>
+                <div class="contactInfoBx">
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-map-maker"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>München, Deutschland</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-map-phone"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>017 647 158 311</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-envolop-o"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>xiang.wu@hotmail.de</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-envolop-o"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Github</h3>
+                            <p>puddlejumper26  <a href="https://github.com/puddlejumper26" target="_blank"><span class="badge badge-success">click!</span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contactImg">
+                <img src="img/contact.jpg">
+            </div>
+            <!-- <div class="formBx">
+                <form>
+                    <h3>Message Me</h3>
+                    <input type="text" name="" placeholder="Full Name">
+                    <input type="email" name="" placeholder="Email">
+                    <textarea placeholder="Your Message" cols="30" rows="10" class="textarea"></textarea>
+                    <button onclick="sendEmail()">hahah</button>
+                </form>
+            </div> -->
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>2020 - Puddlejumper26</p>
+    </div>
+<!-- JS  -->
+    <script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            var header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        })
+
+        function toggleMenu(){
+            var menuToggle = document.querySelector('.toggle');
+            var menu = document.querySelector('.menu');
+            menuToggle.classList.toggle('active')
+            menu.classList.toggle('active')
+        }
+
+        // function sendEmail(){
+        //     var content = document.querySelector('.textarea');
+        //     console.log(11111111,content.textContent)
+            // mailto:shawnnwu@gmail.com?subject=from personal website&body=Hi, Test
+        // }
+    </script>
+</body>
+</html>
